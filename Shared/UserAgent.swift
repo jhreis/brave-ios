@@ -88,7 +88,11 @@ open class UserAgent {
         let mutableUA = NSMutableString(string: userAgent)
         mutableUA.insert("FxiOS/\(appVersion)b\(buildNumber) ", at: mobileRange.location)
 
-        let firefoxUA = "\(mutableUA) Safari/\(webKitVersion)"
+        let firefoxMajorVersion = appVersion.separatedBy(".").first
+        assert(firefoxMajorVersion != nil, "Firefox major version for UA is `nil`")
+        let braveSuffix = "Brave/\(firefoxMajorVersion ?? "0")"
+        
+        let firefoxUA = "\(mutableUA) Safari/\(webKitVersion) \(braveSuffix)"
 
         defaults.set(firefoxUA, forKey: "UserAgent")
 
