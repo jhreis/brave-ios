@@ -53,6 +53,8 @@ class Tab: NSObject {
         return type.isPrivate
     }
     
+    var theme: Theme = Theme.regular
+    
     var contentIsSecure = false
     
     var tabState: TabState {

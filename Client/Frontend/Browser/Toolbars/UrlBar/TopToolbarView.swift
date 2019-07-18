@@ -546,9 +546,11 @@ extension TopToolbarView: Themeable {
         currentTheme = theme
         cancelButton.setTitleColor(UIColor.Browser.Tint.colorFor(theme), for: .normal)
         switch theme {
-        case .regular:
+        case Theme.regular:
             backgroundColor = BraveUX.ToolbarsBackgroundSolidColor
-        case .private:
+        case Theme.private:
+            backgroundColor = BraveUX.DarkToolbarsBackgroundSolidColor
+        default:
             backgroundColor = BraveUX.DarkToolbarsBackgroundSolidColor
         }
         line.backgroundColor = UIColor.Browser.URLBarDivider.colorFor(theme)
