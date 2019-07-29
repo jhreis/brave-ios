@@ -518,6 +518,8 @@
 		5E4845C022DE381200372022 /* WindowRenderHelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E4845BF22DE381200372022 /* WindowRenderHelper.js */; };
 		5E4845C222DE3DF800372022 /* WindowRenderHelperScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4845C122DE3DF800372022 /* WindowRenderHelperScript.swift */; };
 		5E9288CA22DF864C007BE7A6 /* TabSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9288C922DF864C007BE7A6 /* TabSessionTests.swift */; };
+		5EB0606022EB4EDF001BE9CA /* BackgroundMediaPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0605F22EB4EDF001BE9CA /* BackgroundMediaPlayback.swift */; };
+		5EB0606222EB5322001BE9CA /* BackgroundPlay.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0606122EB5322001BE9CA /* BackgroundPlay.js */; };
 		744B0FFE1B4F172E00100422 /* ToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744B0FFD1B4F172E00100422 /* ToolbarTests.swift */; };
 		744ED5611DBFEB8D00A2B5BE /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		7479B4EF1C5306A200DF000B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7479B4ED1C5306A200DF000B /* Reachability.swift */; };
@@ -1890,6 +1892,8 @@
 		5E4845BF22DE381200372022 /* WindowRenderHelper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = WindowRenderHelper.js; sourceTree = "<group>"; };
 		5E4845C122DE3DF800372022 /* WindowRenderHelperScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRenderHelperScript.swift; sourceTree = "<group>"; };
 		5E9288C922DF864C007BE7A6 /* TabSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSessionTests.swift; sourceTree = "<group>"; };
+        5EB0605F22EB4EDF001BE9CA /* BackgroundMediaPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMediaPlayback.swift; sourceTree = "<group>"; };
+		5EB0606122EB5322001BE9CA /* BackgroundPlay.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = BackgroundPlay.js; sourceTree = "<group>"; };
 		744B0FFD1B4F172E00100422 /* ToolbarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarTests.swift; sourceTree = "<group>"; };
 		744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailtoLinkHandler.swift; sourceTree = "<group>"; };
 		7479B4ED1C5306A200DF000B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ThirdParty/Reachability.swift; sourceTree = "<group>"; };
@@ -3617,6 +3621,7 @@
 				F99505FE22937E3900CC6543 /* U2F-low-level.js */,
 				5E3477E822D7771700B0D5F8 /* ResourceDownloader.js */,
 				5E4845BF22DE381200372022 /* WindowRenderHelper.js */,
+				5EB0606122EB5322001BE9CA /* BackgroundPlay.js */,
 			);
 			path = UserScripts;
 			sourceTree = "<group>";
@@ -3854,6 +3859,7 @@
 				279C756A219DDE3B001CD1CB /* FingerprintingProtection.swift */,
 				5E34780F22D7A1D200B0D5F8 /* ResourceDownloadManager.swift */,
 				5E4845C122DE3DF800372022 /* WindowRenderHelperScript.swift */,
+				5EB0605F22EB4EDF001BE9CA /* BackgroundMediaPlayback.swift */,
 			);
 			indentWidth = 4;
 			path = Browser;
@@ -5230,6 +5236,7 @@
 				4422D56D21BFFB7F00BF1855 /* make_unicode_groups.py in Resources */,
 				E4B7B7681A793CF20022C5E0 /* FiraSans-Bold.ttf in Resources */,
 				E4B7B7781A793CF20022C5E0 /* FiraSans-Italic.ttf in Resources */,
+				5EB0606222EB5322001BE9CA /* BackgroundPlay.js in Resources */,
 				0BA1E00E1B03FB0B007675AF /* NetError.html in Resources */,
 				5DE5250E218CE92C000DFAA6 /* block-images.json in Resources */,
 				E4A961381AC06FA50069AD6F /* ReaderViewLoading.html in Resources */,
@@ -5749,6 +5756,7 @@
 				A13AC72520EC12360040D4BB /* Migration.swift in Sources */,
 				27FD2CAB2146C31C00A5A779 /* RequestDesktopSiteActivity.swift in Sources */,
 				3BCE6D3C1CEB9E4D0080928C /* ThirdPartySearchAlerts.swift in Sources */,
+				5EB0606022EB4EDF001BE9CA /* BackgroundMediaPlayback.swift in Sources */,
 				4422D55A21BFFB7F00BF1855 /* regexp.cc in Sources */,
 				0A7B5D722269E7AD00AADF22 /* BookmarkEditMode.swift in Sources */,
 				4422D4DC21BFFB7600BF1855 /* block_builder.cc in Sources */,

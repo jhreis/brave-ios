@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var rootViewController: UIViewController!
     weak var profile: Profile?
     var tabManager: TabManager!
+    var backgroundMediaHandler: BackgroundMediaHandler?
 
     weak var application: UIApplication?
     var launchOptions: [AnyHashable: Any]?
@@ -108,6 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         let profile = getProfile(application)
         let profilePrefix = profile.prefs.getBranchPrefix()
         Migration.launchMigrations(keyPrefix: profilePrefix)
+        
+        backgroundMediaHandler = BackgroundMediaHandler(profile: profile)
 
         if !DebugSettingsBundleOptions.disableLocalWebServer {
             // Set up a web server that serves us static content. Do this early so that it is ready when the UI is presented.
@@ -168,6 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.tabManager = nil
         self.browserViewController = nil
         self.rootViewController = nil
+        self.backgroundMediaHandler = nil
     }
 
     /**
@@ -339,7 +343,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 //                application.endBackgroundTask(taskId)
 //            }
 //        } else {
-            profile.shutdown()
+            self.backgroundMediaHandler?.requestShutdown()
             application.endBackgroundTask(taskId)
 //        }
     }
@@ -350,7 +354,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             return
         }
 
-        profile?.shutdown()
+        self.backgroundMediaHandler?.requestShutdown()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

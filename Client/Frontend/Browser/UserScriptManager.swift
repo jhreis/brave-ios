@@ -151,6 +151,17 @@ class UserScriptManager {
         
         return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
     }()
+    
+    private let bpUserScript: WKUserScript? = {
+        guard let path = Bundle.main.path(forResource: "BackgroundPlay", ofType: "js"), let source: String = try? String(contentsOfFile: path) else {
+            log.error("Failed to load cookie control user script")
+            return nil
+        }
+        
+        var alteredSource = source
+        alteredSource = alteredSource.replacingOccurrences(of: "$<allowBackgroundPlayback>", with: "true", options: .literal)
+        return WKUserScript(source: alteredSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+    }()
 
     private func reloadUserScripts() {
         tab?.webView?.configuration.userContentController.do {
@@ -177,6 +188,10 @@ class UserScriptManager {
             }
             
             if let script = WindowRenderHelperScript {
+                $0.addUserScript(script)
+            }
+            
+            if let script = bpUserScript {
                 $0.addUserScript(script)
             }
         }
