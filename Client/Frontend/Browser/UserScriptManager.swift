@@ -152,14 +152,15 @@ class UserScriptManager {
         return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
     }()
     
-    private let bpUserScript: WKUserScript? = {
+    private let BackgroundMediaPlayUserScript: WKUserScript? = {
         guard let path = Bundle.main.path(forResource: "BackgroundPlay", ofType: "js"), let source: String = try? String(contentsOfFile: path) else {
             log.error("Failed to load cookie control user script")
             return nil
         }
         
         var alteredSource = source
-        alteredSource = alteredSource.replacingOccurrences(of: "$<allowBackgroundPlayback>", with: "true", options: .literal)
+        let token = UserScriptManager.securityToken.uuidString.replacingOccurrences(of: "-", with: "", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<backgroundMediaPlaybackController>", with: "BMPC\(token)", options: .literal)
         return WKUserScript(source: alteredSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     }()
 
@@ -191,7 +192,7 @@ class UserScriptManager {
                 $0.addUserScript(script)
             }
             
-            if let script = bpUserScript {
+            if let script = BackgroundMediaPlayUserScript {
                 $0.addUserScript(script)
             }
         }
